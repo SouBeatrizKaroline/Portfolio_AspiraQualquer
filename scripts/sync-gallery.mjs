@@ -1,0 +1,16 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+const root = fileURLToPath(new URL('../', import.meta.url));
+const context = {window:{}};
+vm.runInNewContext(readFileSync(root+'dist/projects.js','utf8'),context);
+const projects = context.window.PORTFOLIO_PROJECTS;
+const escape = value => String(value??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cats = {jogos:'Jogos',projetos:'Projetos',experimentos:'Experimentos'};
+const cards = projects.map(p=>`<article class="project-card"><button class="project-cover" type="button" aria-label="Ver detalhes de ${escape(p.title)}"><img src="${escape(p.image)}" alt="" loading="lazy"></button><div class="project-body"><div class="project-meta micro"><span class="red">${cats[p.category]}</span><span>CRIAÇÃO INDIVIDUAL</span></div><h3>${escape(p.title)}</h3><p>${escape(p.description)}</p><div class="tags">${p.tags.map(t=>`<span>${escape(t)}</span>`).join('')}</div><div class="project-footer"><button class="project-details-button" type="button" aria-label="Sobre ${escape(p.title)}">Sobre a criação +</button><a class="project-play" href="${escape(p.url)}" target="_blank" rel="noopener noreferrer" aria-label="${p.category==='jogos'?'Jogar':'Abrir'} ${escape(p.title)} (nova aba)">${p.category==='jogos'?'Jogar agora':'Abrir projeto'} ↗</a></div></div></article>`).join('');
+let html = readFileSync(root+'dist/index.html','utf8');
+html = html.replace(/<div id="project-grid" class="project-grid">[\s\S]*?<\/div>(?=<div id="empty-state")/,`<div id="project-grid" class="project-grid">${cards}</div>`);
+html = html.replace(/<div id="empty-state" class="empty-state"[^>]*>/,'<div id="empty-state" class="empty-state" aria-live="polite" hidden>');
+html = html.replace(/<span id="total-count">\d+<\/span>/,`<span id="total-count">${String(projects.length).padStart(2,'0')}</span>`);
+writeFileSync(root+'dist/index.html',html);
+console.log(`Galeria estática atualizada: ${projects.length} criações.`);
