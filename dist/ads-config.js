@@ -2,7 +2,8 @@
 // Os IDs de editor e unidade são públicos; nunca coloque senhas neste arquivo.
 window.AQ_ADS = {
   enabled: false,
-  publisherId: '', // ID público real fornecido pelo AdSense: ca-pub- + 16 dígitos.
+  publisherId: 'ca-pub-6412388913893510', // ID público real fornecido pelo AdSense: ca-pub- + 16 dígitos.
   slotId: '', // data-ad-slot da unidade de anúncio aprovada.
   privacyReviewed: false
 };
+
