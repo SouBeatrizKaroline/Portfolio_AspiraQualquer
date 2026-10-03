@@ -1,5 +1,6 @@
 (() => {
   const projects = Array.isArray(window.PORTFOLIO_PROJECTS) ? window.PORTFOLIO_PROJECTS : [];
+  const featuredProjects = projects.filter(project => project.featured !== false);
   const grid = document.querySelector('#project-grid');
   const empty = document.querySelector('#empty-state');
   const search = document.querySelector('#search');
@@ -36,7 +37,7 @@
     const visible = projects.filter(p => (filter === 'todos' || p.category === filter) && normalize([p.title, p.description, ...(p.tags || [])].join(' ')).includes(query));
     grid.replaceChildren();
     visible.forEach(project => {
-      const card = text('article', 'project-card', '');
+      const card = text('article', 'project-card', ''); card.dataset.project = project.id; card.dataset.category = project.category;
       const art = text('button', 'project-cover', ''); art.type = 'button'; art.setAttribute('aria-label', 'Ver detalhes de ' + project.title);
       if (project.image && safeURL(project.image)) { const img = document.createElement('img'); img.src = safeURL(project.image); img.alt = ''; img.loading = 'lazy'; img.addEventListener('error', () => art.replaceChildren(text('span', '', '✳')), { once: true }); art.append(img); } else { art.append(text('span', '', '✳')); }
       const body = text('div', 'project-body', '');
@@ -78,7 +79,7 @@
   effects.addEventListener('click', () => { paused = !paused; updateMotion(); try { localStorage.setItem('aq-motion', paused ? 'paused' : 'active'); } catch {} });
   let featuredIndex = 0;
   function updateFeatured() {
-    const project = projects[featuredIndex];
+    const project = featuredProjects[featuredIndex];
     const showcase = document.querySelector('.hero-showcase');
     if (showcase) showcase.hidden = !project;
     if (!project) return;
@@ -90,17 +91,17 @@
     image.onerror = () => { image.hidden = true; };
     document.querySelector('#featured-title').textContent = project.title;
     document.querySelector('#featured-tag').textContent = (project.tags || []).slice(0, 2).join(' / ').toUpperCase();
-    document.querySelector('#featured-count').textContent = String(featuredIndex + 1).padStart(2, '0') + ' / ' + String(projects.length).padStart(2, '0');
+    document.querySelector('#featured-count').textContent = String(featuredIndex + 1).padStart(2, '0') + ' / ' + String(featuredProjects.length).padStart(2, '0');
     const play = document.querySelector('#featured-play');
     const url = safeURL(project.url);
     play.href = url || '#colecao';
     play.textContent = url ? (project.category === 'jogos' ? 'Jogar agora ↗' : 'Abrir projeto ↗') : 'Ver coleção ↗';
     if (url) { play.target = '_blank'; play.rel = 'noopener noreferrer'; } else { play.removeAttribute('target'); play.removeAttribute('rel'); }
     play.setAttribute('aria-label', url ? (project.category === 'jogos' ? 'Jogar ' : 'Abrir ') + project.title + ' (nova aba)' : 'Explorar a coleção');
-    document.querySelector('#featured-prev').disabled = projects.length < 2;
-    document.querySelector('#featured-next').disabled = projects.length < 2;
+    document.querySelector('#featured-prev').disabled = featuredProjects.length < 2;
+    document.querySelector('#featured-next').disabled = featuredProjects.length < 2;
   }
-  document.querySelector('#featured-prev').addEventListener('click', () => { if (!projects.length) return; featuredIndex = (featuredIndex - 1 + projects.length) % projects.length; updateFeatured(); });
-  document.querySelector('#featured-next').addEventListener('click', () => { if (!projects.length) return; featuredIndex = (featuredIndex + 1) % projects.length; updateFeatured(); });
+  document.querySelector('#featured-prev').addEventListener('click', () => { if (!featuredProjects.length) return; featuredIndex = (featuredIndex - 1 + featuredProjects.length) % featuredProjects.length; updateFeatured(); });
+  document.querySelector('#featured-next').addEventListener('click', () => { if (!featuredProjects.length) return; featuredIndex = (featuredIndex + 1) % featuredProjects.length; updateFeatured(); });
   updateMotion(); render(); updateFeatured();
 })();
