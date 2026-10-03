@@ -220,3 +220,12 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .showcase-info h2 { margin-top: 0; font-size: 20px; }
   .showcase-play { min-width: 104px; min-height: 44px; padding-inline: 11px; }
 }
+
+/* Canais da criadora */
+.contact .social-channels{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-start;margin-top:28px;position:relative;z-index:1}
+.social-channel{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:48px;padding:14px 20px;border:1px solid #d8b6ff66;border-radius:8px;background:#21112f80;color:#fff;font-size:14px;font-weight:600;transition:background .2s,border-color .2s}
+.social-channel:hover{background:#a779ff40;border-color:#e0c5ff}
+.social-channel span{color:#dfc2ff;font-size:20px;line-height:1}
+.social-channel:focus-visible{outline:2px solid #fff;outline-offset:4px}
+@media(max-width:480px){.contact .social-channels{gap:10px}.social-channel{width:100%;padding:14px 18px}}
+@media(prefers-reduced-motion:reduce){.social-channel{transition:none}}
