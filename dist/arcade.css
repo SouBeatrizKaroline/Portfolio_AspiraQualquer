@@ -115,3 +115,5 @@ dialog{width:min(650px,calc(100vw - 36px));max-height:calc(100dvh - 40px);overfl
 @media(prefers-reduced-motion:reduce){.project-card,.social-channel{transition:none}.project-card:hover,.social-channel:hover{transform:none}}
 
 .about-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:10px}.about-actions .text-link{margin-top:0}
+
+.project-card[data-project=quintalquantico]{--accent:#a9f5dd}

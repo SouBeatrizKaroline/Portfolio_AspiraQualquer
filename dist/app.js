@@ -1,6 +1,6 @@
 (() => {
   const projects = Array.isArray(window.PORTFOLIO_PROJECTS) ? window.PORTFOLIO_PROJECTS : [];
-  const featuredProjects = projects.filter(project => project.featured !== false);
+  const featuredProjects = projects.filter(project => project.featured !== false).sort((a, b) => Number(b.id === 'madahao') - Number(a.id === 'madahao'));
   const grid = document.querySelector('#project-grid');
   const empty = document.querySelector('#empty-state');
   const search = document.querySelector('#search');
