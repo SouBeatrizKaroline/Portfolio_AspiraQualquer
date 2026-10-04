@@ -23,6 +23,8 @@
     content.replaceChildren();
     content.append(text('p', 'eyebrow red', categories[project.category] || 'Projeto'));
     const title = text('h2', '', project.title); title.id = 'dialog-title'; content.append(title);
+    const imageURL = safeURL(project.image);
+    if (imageURL) { const image = document.createElement('img'); image.className = 'dialog-cover'; image.src = imageURL; image.alt = 'Capa ilustrada de ' + project.title; image.addEventListener('error', () => { image.hidden = true; }, { once: true }); content.append(image); }
     content.append(text('p', 'project-details', project.details || project.description));
     const tags = text('div', 'tags', '');
     (project.tags || []).forEach(tag => tags.append(text('span', '', tag))); content.append(tags);
