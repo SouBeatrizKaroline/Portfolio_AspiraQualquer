@@ -60,3 +60,56 @@ dialog{width:min(650px,calc(100vw - 36px));max-height:calc(100dvh - 40px);overfl
 @media(max-width:1100px) and (min-width:701px){.section-heading h2{font-size:29px}.section-description{max-width:310px;font-size:14px}.about{gap:35px}.about-copy h2{font-size:37px}.creator-card{padding:20px}.creator-emblem{width:185px;height:185px}.contact{padding-inline:35px}.contact .social-channels{gap:10px}.social-channel{grid-template-columns:26px minmax(0,1fr);padding:17px 13px;gap:10px}.social-channel .channel-icon{width:25px;height:25px}.channel-arrow{display:none}.footer-main{grid-template-columns:1fr 1fr}.footer-nav{grid-column:1/-1}}
 @media(max-width:700px){.section-heading{margin-bottom:27px}.section-heading h2{font-size:27px;line-height:1.5;letter-spacing:-.7px}.section-heading .eyebrow{font-size:8px}.section-description{max-width:none}.collection-controls{padding:10px}.project-body{padding:22px}.project-card h3{font-size:22px}.project-meta{font-size:8px}.project-meta .red{font-size:8px}.project-footer{gap:8px}.project-play{font-size:11px}.about{grid-template-columns:minmax(0,1fr);gap:35px;padding-block:52px 60px}.creator-card{width:100%;max-width:420px;margin-inline:auto;padding:22px}.creator-emblem{width:200px;height:200px;margin-top:25px}.creator-card-top{font-size:7px}.creator-name h3{font-size:19px}.about-copy h2{font-size:36px}.about-copy p:not(.eyebrow){font-size:14px}.contact{padding:30px 24px}.contact h2{font-size:34px}.contact:after{font-size:170px;right:-5px;top:0}.contact .social-channels{grid-template-columns:minmax(0,1fr);gap:11px;margin-top:25px}.social-channel{width:100%;min-height:84px;padding:18px 20px}.channel-copy strong{font-size:14px}.channel-copy small{font-size:12px}.footer.wrap{margin-top:35px;padding-block:30px 20px}.footer-main{grid-template-columns:minmax(0,1fr);gap:17px}.footer-main .brand{font-size:11px;width:auto}.footer-nav{gap:22px}.footer-bottom{flex-wrap:wrap;gap:12px 20px;margin-top:20px;padding-top:17px}.footer-bottom>span{width:100%;margin-right:0;font-size:7px}.footer-bottom .back-to-top{margin-left:auto}dialog{padding:21px;width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.dialog-top{top:-21px}#dialog-content h2{font-size:22px}.privacy-page main{margin:20px 14px;padding-inline:22px!important}.privacy-page main h1{font-size:33px!important}}
 @media(max-width:360px){.creator-card{padding:18px}.creator-card-top{letter-spacing:.6px}.creator-status{font-size:6px}.section-heading h2{font-size:24px}.project-body{padding:18px}.project-card h3{font-size:20px}.creator-name h3{font-size:17px}.contact h2{font-size:30px}}
+
+/* Refinamento da coleção e das conexões: arte em primeiro plano. */
+.header{backdrop-filter:blur(18px);background:#190e2bed}
+.header nav>a{min-height:44px;display:inline-flex;align-items:center;gap:8px}
+.header .nav-contact{border-radius:8px;clip-path:none;background:linear-gradient(110deg,#933add35,#6844d530);border-color:#c48aff66}
+.hero-showcase{transform:rotate(-2deg);border-radius:16px}
+.showcase-stage{border-radius:0}.showcase-play{border-radius:8px}
+.collection{padding-top:94px}
+.section-heading h2{font-family:var(--sans);font-size:clamp(42px,4.3vw,62px);font-weight:800;line-height:1.08;letter-spacing:-2.4px}
+.section-heading h2 em{font-style:normal;background:linear-gradient(100deg,#eeabff,#b3a1ff 70%,#9bdff8);background-clip:text;-webkit-background-clip:text;color:transparent}
+.collection-controls{background:#241634c9;border:1px solid #ae76da45;box-shadow:0 10px 30px #05020f30;border-radius:14px;padding:12px}
+.filters{gap:6px}.filter{min-height:44px;font-weight:600;padding-inline:20px}
+.search{border:1px solid #b489d144;border-radius:9px;background:#140d24;padding-inline:12px}
+.search input{background:transparent;min-height:44px}
+.project-grid{counter-reset:collection}
+.project-card{counter-increment:collection;border:1px solid #a86ed64d;background:linear-gradient(145deg,#302044,#1a132a);border-radius:17px;box-shadow:0 12px 32px #07031355;transition:transform .25s,border-color .25s,box-shadow .25s}
+.project-card:before{height:2px;opacity:.8}
+.project-card:hover{transform:translateY(-5px);box-shadow:0 20px 45px #07031380,0 0 24px #a262eb1f}
+.project-cover{aspect-ratio:16/10;border-bottom:1px solid #d89aff33}
+.project-cover img{width:100%;height:100%;aspect-ratio:16/10;filter:saturate(1.15);object-fit:cover}
+.project-cover:before{content:counter(collection,decimal-leading-zero);position:absolute;top:14px;left:14px;z-index:2;display:grid;place-items:center;width:33px;height:33px;background:#120a20c9;border:1px solid #f0dcff55;border-radius:7px;color:#f5e5ff;font:10px var(--mono);pointer-events:none}
+.project-cover:after{content:'VER DETALHES ↗';border-radius:6px;backdrop-filter:blur(8px);font-size:8px;letter-spacing:.7px}
+.project-card h3{font-family:var(--sans);font-size:25px;font-weight:750;line-height:1.2;letter-spacing:-.6px;margin-block:19px 12px}
+.project-card p{font-size:14px;line-height:1.75;color:#d7c9e5}
+.project-meta>span:last-child{color:#b7a5cd}
+.project-footer{padding-top:16px;border-top-color:#cf9ff02b}
+.project-details-button{font-size:11px;color:#d2b8eb}
+.project-play{font-size:12px;min-height:44px;padding:12px 15px;border-radius:8px;box-shadow:0 4px 18px #8934b825;background:linear-gradient(105deg,#a449dc,#753ddd)}
+.project-card[data-category=projetos] .project-play{background:linear-gradient(105deg,#4759a0,#3b347b)}
+.project-play:hover{box-shadow:0 4px 24px #a453e54f}
+.creator-card{border-color:#d59cff66;background:radial-gradient(circle at 50% 35%,#873dc75e,transparent 65%),linear-gradient(140deg,#352052,#1b142c);box-shadow:0 20px 65px #08031466}
+.creator-emblem{width:235px;height:235px;border-color:#e7a3ff66;box-shadow:0 0 75px #b552ee38,inset 0 0 45px #c68dff1f}
+.creator-name h3{font-size:21px}
+.about-copy h2{font-size:clamp(40px,4vw,54px);letter-spacing:-2px;line-height:1.12}
+.about-copy p:not(.eyebrow){font-size:15px;line-height:1.9;max-width:510px}
+.about-copy .text-link:hover{background:#a044dd4d;border-color:#e0adff}
+.contact{border-radius:20px;border-color:#d995ff66;padding-block:55px;background:radial-gradient(ellipse at 100% 0%,#923ac966,transparent 70%),radial-gradient(ellipse at 0% 100%,#445ed03b,transparent 65%),linear-gradient(110deg,#3d195c,#21143d);box-shadow:0 20px 70px #0a031966}
+.contact:before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#c577ff,#eaa7ff,#85e6e0)}
+.contact h2{font-size:clamp(36px,4vw,52px);line-height:1.13;letter-spacing:-1.6px}
+.contact h2 em{color:#eaa7ff}
+.contact .eyebrow{font-size:10px;letter-spacing:1.8px;color:#daa7ff}
+.social-channel{background:#160e27a6;border-color:#b77ae844;transition:transform .2s,border-color .2s,background .2s}
+.social-channel:hover{transform:translateY(-3px)}
+.social-channel .channel-icon{padding:8px;width:44px;height:44px;border:1px solid #c59bd332;border-radius:10px;background:#ae74ca10}
+.social-channel{grid-template-columns:44px minmax(0,1fr) 20px;gap:13px}
+.channel-copy strong{font-family:var(--sans);font-size:17px;font-weight:700}
+.channel-copy small{font-size:12px}.social-channel .channel-arrow{font-size:26px}
+.footer.wrap{border-top-color:#cf94fb33}.footer-nav a:hover{text-decoration:underline;text-underline-offset:6px}
+@media(min-width:1280px){.project-body{padding:23px}.project-card h3{font-size:24px}.project-card p{font-size:14px}.project-meta{font-size:7px}.project-play{font-size:11px}}
+@media(max-width:1100px) and (min-width:701px){.section-heading h2{font-size:43px}.social-channel{grid-template-columns:38px minmax(0,1fr);gap:10px}.social-channel .channel-icon{width:38px;height:38px}.channel-copy strong{font-size:15px}.channel-copy small{font-size:11px}}
+@media(max-width:700px){.collection{padding-top:54px}.section-heading h2{font-size:40px;line-height:1.1;letter-spacing:-1.5px}.collection-controls{padding:10px}.filter{padding-inline:14px;font-size:12px}.search{margin-top:4px}.project-card h3{font-size:26px}.project-cover{aspect-ratio:16/9}.project-cover img{aspect-ratio:16/9}.project-cover:before{top:12px;left:12px}.project-body{padding:22px}.creator-emblem{width:210px;height:210px}.about-copy h2{font-size:40px;letter-spacing:-1.6px}.about-copy p:not(.eyebrow){font-size:14px}.contact{padding:34px 23px;border-radius:16px}.contact h2{font-size:35px;letter-spacing:-1px}.social-channel .channel-icon{width:42px;height:42px}.channel-copy strong{font-size:17px}.hero-showcase{transform:none}}
+@media(max-width:360px){.section-heading h2{font-size:35px}.project-card h3{font-size:23px}.contact h2{font-size:31px}.filter{padding-inline:10px}}
+@media(prefers-reduced-motion:reduce){.project-card,.social-channel{transition:none}.project-card:hover,.social-channel:hover{transform:none}}
