@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#19152f"/><stop offset=".55" stop-color="#302058"/><stop offset="1" stop-color="#143d49"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#88eadb" stop-opacity=".2"/><stop offset="1" stop-color="#88eadb" stop-opacity="0"/></radialGradient>
+    <linearGradient id="route" x2="1" y2="1"><stop stop-color="#b598ff"/><stop offset="1" stop-color="#8df3dd"/></linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h960v540H0z"/>
+  <circle cx="727" cy="266" r="270" fill="url(#glow)"/>
+  <g fill="#d9ccff" opacity=".5"><circle cx="70" cy="78" r="2"/><circle cx="240" cy="55" r="2"/><circle cx="428" cy="105" r="1.5"/><circle cx="562" cy="60" r="2"/><circle cx="866" cy="85" r="2"/><circle cx="484" cy="420" r="2"/><circle cx="898" cy="414" r="2"/></g>
+  <g fill="none" stroke="#ac94e1" opacity=".16"><path d="M530 110h360M530 170h360M530 230h360M530 290h360M530 350h360M530 410h360M550 90v340M610 90v340M670 90v340M730 90v340M790 90v340M850 90v340"/></g>
+  <path d="M559 394h96v-89h92v-85h98" fill="none" stroke="url(#route)" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M655 305v-97h-82" fill="none" stroke="#b598ff" stroke-width="4" stroke-dasharray="9 10" stroke-linecap="round" opacity=".6"/>
+  <g fill="#241d40" stroke="#a7f6e4" stroke-width="5"><circle cx="559" cy="394" r="12"/><circle cx="655" cy="305" r="12"/><circle cx="747" cy="220" r="12"/></g>
+  <g fill="#af94ed"><circle cx="573" cy="208" r="8"/><circle cx="845" cy="220" r="8"/></g>
+  <g transform="translate(733 92)"><path d="m-62 40 62-33 62 33-62 33Z" fill="#bca2ff"/><path d="M-38 61v32q38 24 76 0V61l-38 20Z" fill="#7960b3"/><path d="M62 40v58" fill="none" stroke="#8df3dd" stroke-width="4"/><circle cx="62" cy="101" r="5" fill="#8df3dd"/></g>
+  <g font-family="Arial,sans-serif"><text x="65" y="255" font-size="80" font-weight="700" fill="#f1ecff">Rota <tspan fill="#a7f6e4">XP</tspan></text><text x="69" y="301" font-family="monospace" letter-spacing="3" font-size="14" fill="#d0c4e5">SUA JORNADA. NOVOS CAMINHOS.</text></g>
+  <path d="M0 470q220-45 440 0t520 0v70H0Z" fill="#16152b"/>
+  <text x="37" y="511" font-family="monospace" letter-spacing="3" font-size="12" fill="#b5e9df">EXPLORAR · ESCOLHER · RECALCULAR</text>
+</svg>
